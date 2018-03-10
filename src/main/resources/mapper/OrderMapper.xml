@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.game.gameshoping.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.shop.game.gameshoping.domain.Order">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="buyer_id" jdbcType="BIGINT" property="buyerId" />
+    <result column="bussiness_id" jdbcType="BIGINT" property="bussinessId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="pay_way" jdbcType="INTEGER" property="payWay" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+  </resultMap>
+
+  <select id="findOrderByUserId" resultType="com.shop.game.gameshoping.domain.Order">
+    SELECT order_id,buyer_id,bussiness_id,create_time,pay_way,order_status
+    FROM "order" WHERE buyer_id = #{userId,jdbcType=BIGINT}
+  </select>
+
+  <select id="getOrderIdByUserId" resultType="java.lang.Long">
+    SELECT order_id FROM "order" WHERE buyer_id = #{userId,jdbcType=BIGINT}
+  </select>
+</mapper>

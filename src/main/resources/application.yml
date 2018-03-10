@@ -1,0 +1,85 @@
+spring:
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+  messages:
+    encoding: UTF-8
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/Game_sharing?useUnicode=true&characterEncoding=utf8
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: moumm25
+    max-active: 20
+    max-idel: 8
+    min-idle: 8
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 2
+
+  redis:
+    host: localhost
+    port: 6379
+    pool:
+      max-active: 8
+      min-idle: 0
+      max-idle: 8
+      max-wait: -1
+    password: moumm25
+    timeout: 0
+
+#
+#spring:
+#  profiles:
+#    datasource:
+#      shiro:
+#        driver-class-name: com.mysql.jdbc.Driver
+#        url: jdbc:mysql://127.0.0.1/Game_sharing?useUnicode=true&characterEncoding=utf8
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        username: root
+#        password: moumm25
+
+
+server:
+  port: 8888
+  tomcat:
+    uri-encoding: UTF-8
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.shop.game.gameshopin.domain
+#  configuration:
+#    use-column-label: true
+#    map-underscore-to-camel-case: true
+#    use-generated-keys: true
+
+mapper:
+  mappers: com.shop.game.gameshoping.util.pageHelper.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+
+
+
+logging:
+  level:
+    com: trace
+    org:
+      springframework:
+        web: info
+banner:
+  charset: UTF-8

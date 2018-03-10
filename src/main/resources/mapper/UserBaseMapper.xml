@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.game.gameshoping.dao.UserBaseMapper">
+  <resultMap id="BaseResultMap" type="com.shop.game.gameshoping.domain.UserBase">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_PWD" jdbcType="VARCHAR" property="userPwd" />
+    <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="USER_ICON" jdbcType="VARCHAR" property="userIcon" />
+    <result column="SEX" jdbcType="CHAR" property="sex" />
+    <result column="NICKNAME" jdbcType="VARCHAR" property="nickname" />
+    <result column="STAT" jdbcType="VARCHAR" property="stat" />
+    <result column="USER_MALL" jdbcType="BIGINT" property="userMall" />
+    <result column="LAST_LOGIN_DATE" jdbcType="TIMESTAMP" property="lastLoginDate" />
+    <result column="LAST_LOGIN_IP" jdbcType="VARCHAR" property="lastLoginIp" />
+    <result column="SRC_OPEN_USER_ID" jdbcType="BIGINT" property="srcOpenUserId" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="IS_EMAIL_CONFIRMED" jdbcType="CHAR" property="isEmailConfirmed" />
+    <result column="IS_PHONE_CONFIRMED" jdbcType="CHAR" property="isPhoneConfirmed" />
+    <result column="CREATER" jdbcType="BIGINT" property="creater" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="MOBILE_TGC" jdbcType="CHAR" property="mobileTgc" />
+    <result column="MAC" jdbcType="CHAR" property="mac" />
+    <result column="SOURCE" jdbcType="CHAR" property="source" />
+    <result column="ACTIVATE" jdbcType="CHAR" property="activate" />
+    <result column="ACTIVATE_TYPE" jdbcType="CHAR" property="activateType" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USER_NAME, USER_PWD, BIRTHDAY, NAME, USER_ICON, SEX, NICKNAME, STAT, USER_MALL,
+    LAST_LOGIN_DATE, LAST_LOGIN_IP, SRC_OPEN_USER_ID, EMAIL, MOBILE, IS_EMAIL_CONFIRMED,
+    IS_PHONE_CONFIRMED, CREATER, CREATE_DATE, UPDATE_DATE, MOBILE_TGC, MAC, SOURCE, ACTIVATE,
+    ACTIVATE_TYPE
+  </sql>
+
+  <select id="selectUserByUsername" resultType="com.shop.game.gameshoping.domain.UserBase">
+    SELECT
+    ID,USER_NAME,USER_PWD
+    FROM USER_BASE
+    WHERE USER_NAME = #{username,jdbcType=VARCHAR}
+  </select>
+  <select id="selectPassWdByPrimaryKey" resultType="java.lang.String"></select>
+</mapper>
